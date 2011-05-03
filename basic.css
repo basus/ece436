@@ -1,0 +1,22 @@
+body {    background: #cccccc; }
+
+h1 {
+    text-align: center;
+    font-family: Georgia, Times New Roman;
+    font-size: 50px;
+    text-shadow: 3px 3px 3px #333333;
+}
+
+p {
+    margin: 0 10% 0 10%;
+    padding: 3%;
+    font-family: Verdana, Arial;
+    background: #dddddd;
+    border-radius: 1em;
+    box-shadow: 3px 3px 5px #999999;
+}
+
+a {
+    font-weight: bold;
+    color: #000000;
+}

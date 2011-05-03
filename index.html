@@ -1,0 +1,420 @@
+<!DOCTYPE html> 
+<!--
+  Copyright 2010 Google Inc.
+ 
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+ 
+     http://www.apache.org/licenses/LICENSE-2.0
+ 
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+ 
+  Original slides: Marcin Wichary (mwichary@google.com)
+  Modifications: Chrome Developer Relations <chrome-devrel@googlegroups.com>
+-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge;chrome=1" />
+
+    <title>HTML5 presentation</title>
+
+    <link href="http://fonts.googleapis.com/css?family=Droid+Sans|Droid+Sans+Mono" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="slideshow.css" type="text/css" media="screen" />
+    
+    <script type="text/javascript" src="slideshow.js"></script>
+    <script type="text/javascript" src="xhr.js"></script>
+    <script type="text/javascript" src="hello.js"></script>
+    
+  </head> 
+  <body onload="js()"> 
+    <div class="presentation"> 
+      <div id="presentation-counter"></div>
+
+
+      <div class="slides"> 
+
+        <div class="slide">
+          
+
+          <section class="middle">
+          <header> 
+            <h1>Programming for the Web</h1>
+          </header> 
+            <h2>Using HTML, JavaScript and CSS</h2>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section>
+            <header>
+            <h1>What is XML?</h1>
+            </header>
+            <ul>
+              <li>eXtensible Markup Language</li>
+              <li>Set of rules for encoding documents in machine-readable
+              form</li>
+              <li>Plain text data format with support for Unicode</li>
+              <li>XML documents must be well-formed &ndash; satisfy the syntax
+              rules in the XML specification</li>
+              <li>XML allows you to define your own markup languages for
+              specific applications</li>
+              <li>XML markup languages include HTML, RSS, MathML and DocBook</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section >
+            <header>
+              <h1>An XML example</h1>
+            </header>
+            <pre>
+              &lt;<b>tag</b> <em>attribute</em>="value"&gt;
+              
+                  Some Content
+
+                  &lt;<b>nested</b>&gt;
+                      Some more content
+                  &lt;<b>/nested</b>&gt;
+
+                  &lt;<b>empty-tag </b>/&gt;
+              &lt;<b>/tag</b>&gt;
+            </pre>
+
+            <ul>
+              <li>XML data has a tree-like structure</li>
+              <li>XML parsers check for validity and well-formedness against a given specification</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section>
+            <header>
+            <h1>What is HTML?</h1>
+            </header>
+
+            <ul>
+              <li>HyperText Markup Language</li>
+              <li>It is a language for structuring content for the World Wide Web</li>
+              <li>Provides structural meaning for text by providing headings, paragraphs, lists,
+              links, etc</li>
+              <li>Allows links to other resources on the Internet and embedding of images, audio
+              and video</li>
+              <li>HTML5 is a formulation of HTML as an XML document type</li>
+            </ul>
+
+            <pre>
+              &lt;<em>!DOCTYPE</em> html&gt;
+            </pre>
+          </section>
+        </div>
+
+        
+        <div class="slide">
+          <section>
+            <header>
+              <h1>HTML example</h1>
+            </header>
+
+            <pre>
+&lt;<em>!DOCTPYE html/</em>&gt;
+&lt;<b>html</b>&gt;
+&lt;<b>head</b>&gt;
+  &lt;<em>meta</em> http-equiv="Content-Type" content="text/html; charset=UTF-8" /&gt;
+  &lt;<em>meta</em> content="Shrutarshi Basu" name="author" /&gt;
+
+  &lt;<em>script</em> src="somescript.js"&gt;&lt;<em>/script</em>&gt;
+  &lt;<em>link</em> href="somestyle.css" rel="stylesheet" type="text/css" /&gt;
+
+  &lt;<em>title</em>&gt;Page Title&lt;<em>/title</em>&gt;
+&lt;<b>/head</b>&gt;
+
+
+&lt;<b>body</b>&gt;
+  &lt;<em>h1</em>&gt;This is a basic header&lt;<em>/h1</em>&gt;
+  &lt;<em>p</em>&gt;This is a simple paragraph with a  &lt;<em>a</em> href="index.html"&gt;link&lt;<em>/a</em>&gt;.&lt;<em>/p</em>&gt;
+&lt;<b>/body</b>&gt;
+&lt;<b>/html</b>&gt;    
+
+            </pre>
+          <p>
+            See what this page <a href="plain.html" target="_blank">looks like</a>.
+          </p>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section class="middle">
+            <header>
+              <h1>HTML is meant for structure and content</h1>
+              <h2>CSS is for styling a structured document</h2>
+            </header>
+
+            <br />
+
+            <ul>
+              <li>Use HTML to structure your document (headers, paragraphs, lists etc). </li>
+              <li>Use CSS to describe how elements look (fonts, colors, weight).</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section>
+            <header>
+              <h1>What is CSS?</h1>
+            </header>
+
+            <ul>
+              <li>Cascading Style Sheets</li>
+              <li>Select HTML elements</li>
+              <li>Apply styling information to selected HTML elements</li>
+              <li>Most commonly used for HTML, but can be applied to any XML format</li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section>
+            <header>
+              <h1>CSS example (using previous HTML)</h1>
+            </header>
+
+            <pre>
+<b>body</b> {    background: #cccccc; }
+
+<b>h1</b> {
+    text-align: center;
+    font-family: Georgia, Times New Roman;
+    font-size: 100px;
+    text-shadow: 3px 3px 3px #333333;
+}
+
+<b>p</b> {
+    margin: 0 10% 0 10%;
+    padding: 3%;
+    font-family: Verdana, Arial;
+    background: #dddddd;
+    border-radius: 1em;
+    box-shadow: 3px 3px 5px #999999;
+}
+
+<b>a</b> {
+    font-weight: bold;
+    color: #000000;
+}
+
+            </pre>
+            <p>
+              See what this page <a href="basic.html" target="_blank">looks like</a>.
+            </p>
+          </section>
+        </div>
+
+        <div class="slide"> 
+          <section >
+            <header>
+              <h1>What is JavaScript?</h1>
+            </header>
+            
+            <ul>
+              <li>Dynamic, object-oriented programming language</li>
+              <li>Provides variables, objects, arrays and functions (but not classes)</li>
+              <li>Syntax is similar to C and Java, but has little in common with them</li>
+              <li>Designed to be used embedded in an environment such as a browser or widget
+              engine</li>
+              <li>Can be interact with HTML pages via the Document Object Model</li>
+            </ul>
+          </section> 
+        </div>
+
+        <div class="slide">
+          <section>
+            <header>
+              <h1>A simple JavaScript example</h1>
+            </header>
+
+            <pre>
+<b>function</b> factorial(n) {
+
+    <b>if</b> (n == 0) {
+        <b>return</b> 1;
+    } else {
+        <b>return</b> n * factorial(n - 1)
+    }
+}
+        
+<b>var</b> fact0 = factorial(0);
+<b>var</b> fact32 = factorial(32);
+            </pre>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section id="hello">
+            <header>
+              <h1>JavaScript using the DOM</h1>
+            </header>
+
+            <pre>
+&lt;button type="button" <b>onclick</b>="<em>hello()</em>"&gt; Say Hello&lt;/button&gt;              
+            </pre>
+            
+            <button type="button" onclick="hello()"> Say Hello</button>
+
+            <pre>
+<b>function</b> hello() {
+    <b>var</b> hello = <em>document.createElement</em>("p");
+    <b>var</b> hello_text = <em>document.createTextNode</em>("Hello, World!");
+    hello.<em>appendChild</em>(hello_text);
+    <em>document.body.appendChild</em>(hello);
+};
+            </pre>
+
+            <p>
+              Treats the HTML as a tree of JavaScript objects, letting you add, delete and edit nodes.
+            </p>
+          </section>
+        </div>
+
+        <div class="slide"> 
+          <section class="middle">
+            <header>
+              <h1>The DOM is a rather tedious, low-level API</h1>
+              <h2>Most web applications are built using JavaScript libraries like jQuery,
+              Prototype, Ext Core, Dojo etc.</h2>
+            </header>
+          </section> 
+        </div> 
+
+        <div class="slide"> 
+          <section>
+            <header>
+              <h1>Building a web application</h1>
+            </header>
+
+            <ol>
+              <li>Create an HTML page (with optionally CSS styling)</li>
+              <li>Use JavaScript to send information requests via HTTP</li>
+              <li>Have a server to listen to HTTP requests and send replies in XML format</li>
+              <li>Use JavaScript to receive the reply and extract relevant information</li>
+              <li>Use JavaScript to manipulate the DOM to present the extracted information</li>
+            </ol>
+          </section> 
+        </div>
+
+        <div class="slide">
+          <section>
+            <header>
+              <h1>XML HTTP Request</h1>
+            </header>
+
+          <pre>
+<b>var</b> xmlHttp = new <em>XMLHttpRequest()</em>;
+
+xmlHttp.onreadystatechange = some_function;
+xmlHttp.open("GET", URL, true);
+xmlHttp.send(null);
+
+
+<b>function</b> some_function {
+
+    Do something with data in <em>xmlHttp.responseText</em>
+
+}
+          </pre>
+
+          <ul>
+            <li>Server responds to requests with text data &mdash; generally in XML. </li>
+            <li>Responses may be generated dynamically. </li>
+            <li>Server can be written in any language &mdash; PHP, Python, Ruby, Java, etc.</li>
+            
+          </ul>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section id="xhr-ex">
+            <header>
+              <h1>XHR Example</h1>
+            </header>
+
+            <pre>
+<b>var</b> xml;
+<b>function</b> request() {
+    xml = new <em>XMLHttpRequest</em>();
+    xml.onreadystatechange = respond;
+    xml.open("GET", "test.xml", true);
+    xml.send(null);
+}
+
+<b>function</b> respond() {
+    if (xml.readyState == 4 && xml.status == 200 ) {
+        var em = document.<em>getElementById</em>("xhr-ex");
+        var hello = document.<em>createElement</em>("p");
+        var hello_text = document.<em>createTextNode</em>(xml.responseText);
+        hello.<em>appendChild</em>(hello_text);
+        em.<em>appendChild</em>(hello);
+    } 
+};
+            </pre>
+            <button type="button" onclick="request()"> Send Request</button>
+          </section>
+        </div>
+
+        <div class="slide">
+          <section id="python">
+            <header>
+              <h1>Writing a simple Python Server</h1>
+            </header>
+
+            <pre>
+<b>import</b> web
+
+urls = (
+    'py*', 'index'
+    )
+
+app = <em>web.application</em>(urls, globals())
+
+<b>class</b> index:
+    <b>def</b> GET(self):
+        <b>return</b> "This is a Python Server"
+
+<b>if</b> __name__ == "__main__": <em>app.run()</em>
+            </pre>
+            <button type="button" onclick="pyrequest()"> Send Request</button>
+          </section>
+        </div>
+        
+        <div class="slide"> 
+          <section>
+            <header>
+              <h1>In Summary</h1>
+            </header>
+
+            <ol>
+              <li>Use HTML to create structured documents</li>
+              <li>Use CSS to apply visual styles to an HTML document</li>
+              <li>Use JavaScript (with libraries) to manipulate the DOM</li>
+              <li>Use JavaScript and XML HTTP Request to make requests to a server and update the
+              web page</li>
+              <li>Use a server written in any programming language to send text data back to a web page</li>
+              <li>This slideshow is also an HTML document using CSS, JavaScript and XMLHttpRequest, backed by the Nginx Web Server</li>
+            </ol>
+          </section> 
+        </div> 
+        
+ 
+      </div> <!-- slides --> 
+ 
+    </div> <!-- presentation --> 
+  </body> 
+</html>
